@@ -1,7 +1,10 @@
 /**
  * This class provides a convenient way to test shuffling methods.
  */
+<<<<<<< HEAD
 import java.util.Random;
+=======
+>>>>>>> origin/master
 public class Shuffler {
 
     /**
@@ -76,12 +79,21 @@ public class Shuffler {
      * @param values is an array of integers simulating cards to be shuffled.
      */
     public static void selectionShuffle(int[] values) {
+<<<<<<< HEAD
         Random rand = new Random();
         for (int i =  values.length - 1; i > 0; i--) {
             int j = rand.nextInt(i + 1);
             int temp = values[i];
             values[i] = values[j];
             values[j] = temp;
+=======
+        int[] shuffled = new int[values.length];
+        for (int k = 0; k <= 51; k++) {
+            while(values[k] == 0) {
+                int j = (int) (Math.random() * 51);
+                shuffled[k] = values[j];
+            }
+>>>>>>> origin/master
         }
     }
 }
