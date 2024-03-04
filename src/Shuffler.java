@@ -1,10 +1,8 @@
 /**
  * This class provides a convenient way to test shuffling methods.
  */
-<<<<<<< HEAD
 import java.util.Random;
-=======
->>>>>>> origin/master
+
 public class Shuffler {
 
     /**
@@ -16,6 +14,7 @@ public class Shuffler {
 
     /**
      * Tests shuffling methods.
+     *
      * @param args is not used.
      */
     public static void main(String[] args) {
@@ -51,19 +50,24 @@ public class Shuffler {
      * Apply a "perfect shuffle" to the argument.
      * The perfect shuffle algorithm splits the deck in half, then interleaves
      * the cards in one half with the cards in the other.
+     *
      * @param values is an array of integers simulating cards to be shuffled.
      */
     public static void perfectShuffle(int[] values) {
         int[] shuffled = new int[values.length];
         int k = 0;
-        for (int j = 0; j <= 25; j++) {
-            shuffled[j] = values[k];
-            k += 2;
+        for (int j = 0; j <= values.length / 2; j++) {
+            if (k < values.length) {
+                shuffled[j] = values[k];
+                k += 2;
+            }
         }
         k = 1;
-        for (int j = 26; j <= 51; j++) {
-            shuffled[j] = values[k];
-            k += 2;
+        for (int j = values.length / 2; j <= values.length; j++) {
+            if (k < values.length) {
+                shuffled[j] = values[k];
+                k += 2;
+            }
         }
     }
 
@@ -76,24 +80,16 @@ public class Shuffler {
      * selected and add it to the selected cards.
      * An efficient version of this algorithm makes use of arrays to avoid
      * searching for an as-yet-unselected card.
+     *
      * @param values is an array of integers simulating cards to be shuffled.
      */
     public static void selectionShuffle(int[] values) {
-<<<<<<< HEAD
         Random rand = new Random();
-        for (int i =  values.length - 1; i > 0; i--) {
+        for (int i = values.length - 1; i > 0; i--) {
             int j = rand.nextInt(i + 1);
             int temp = values[i];
             values[i] = values[j];
             values[j] = temp;
-=======
-        int[] shuffled = new int[values.length];
-        for (int k = 0; k <= 51; k++) {
-            while(values[k] == 0) {
-                int j = (int) (Math.random() * 51);
-                shuffled[k] = values[j];
-            }
->>>>>>> origin/master
         }
     }
 }
