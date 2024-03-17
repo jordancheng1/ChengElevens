@@ -6,7 +6,9 @@ public class Deck {
 
     public Deck(String[] ranks, String[] suits, int[] values) {
         for (int i = 0; i < ranks.length; i++) {
-            cards.add(new Card(ranks[i], suits[i], values[i]));
+            for (int j = 0; j < suits.length; j++) {
+                cards.add(new Card(ranks[i], suits[j], values[i]));
+            }
         }
         size = cards.size();
     }
